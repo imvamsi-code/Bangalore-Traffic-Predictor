@@ -26,23 +26,25 @@ except Exception as e:
 col1, col2 = st.columns(2)
 
 with col1:
-    selected_area = st.selectbox("🗺️ Area Name:", 
-                                ("Koramangala", "Whitefield", "Electronic City", "North Bangalore", "Central"))
-    
-    # A Python Dictionary that links Areas to their specific roads
-    geography_map = {
-        "Koramangala": ["Silk Board Junction", "Sony World Signal"],
-        "Whitefield": ["ITPL Main Road", "Hope Farm Junction"],
-        "Electronic City": ["Hosur Road", "Toll Gate"],
-        "North Bangalore": ["Hebbal Flyover", "Mekhri Circle"],
-        "Central": ["M.G. Road", "Trinity Circle"]
+    road_mapping = {
+        "Silk Board Junction": "Road/Intersection Name_Silk Board Junction",
+        "ITPL Main Road": "Road/Intersection Name_ITPL Main Road",
+        "Jayanagar 4th Block": "Road/Intersection Name_Jayanagar 4th Block",
+        "Marathahalli Bridge": "Road/Intersection Name_Marathahalli Bridge",
+        "Yeshwanthpur Circle": "Road/Intersection Name_Yeshwanthpur Circle",
+       
     }
+
+   
+    selected_pretty_name = st.selectbox("📍 Intersection Name:", list(road_mapping.keys()))
     
-    # The road dropdown now magically updates based on the area chosen above!
-    selected_road = st.selectbox("📍 Intersection Name:", geography_map[selected_area])
+   
+    ai_road_name = road_mapping[selected_pretty_name] 
+
+    selected_area = st.selectbox("🗺️ Area Name:", ("Koramangala", "Whitefield", "Electronic City", "Indiranagar"))
+    selected_weather = st.selectbox("☀️ Weather:", ("Clear", "Rain", "Fog", "Overcast", "Windy"))
     
-    selected_weather = st.selectbox("☀️ Weather:", 
-                                   ("Clear", "Rain", "Fog", "Overcast", "Windy"))
+    
 
 with col2:
     selected_date = st.date_input("📅 Date:", datetime.date(2026, 6, 29))
