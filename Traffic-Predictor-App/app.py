@@ -71,7 +71,7 @@ if st.button("🚀 Predict Traffic Now", use_container_width=True):
     # Insert One-Hot Encoded Features
     weather_col = f"Weather Conditions_{selected_weather}"
     area_col = f"Area Name_{selected_area}"
-    road_col = f"Road/Intersection Name_{selected_road}"
+    road_col = ai_road_name
     
     # Safely flip the switches to 1 if they exist
     if weather_col in input_df.columns: input_df[weather_col] = 1
