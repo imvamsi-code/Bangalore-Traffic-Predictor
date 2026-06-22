@@ -20,7 +20,7 @@ try:
     reg_model, clf_model, model_columns = load_models()
 except Exception as e:
   st.error(f"⚠️ System Error: {e}")
-    st.stop()
+  st.stop()
 
 # --- 3. USER INPUTS (THE DASHBOARD) ---
 col1, col2 = st.columns(2)
