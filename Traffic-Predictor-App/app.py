@@ -11,9 +11,9 @@ st.write("Predict live traffic volume and congestion levels for major intersecti
 # --- 2. LOAD THE FROZEN MODELS ---
 @st.cache_resource  # This keeps the models in memory so the app runs lightning fast!
 def load_models():
-    reg = joblib.load('xgboost_traffic_regressor.pkl')
-    clf = joblib.load('xgboost_traffic_classifier.pkl')
-    cols = joblib.load('model_columns.pkl')
+    reg = joblib.load('Traffic-Predictor-App/xgboost_traffic_regressor.pkl')
+    clf = joblib.load('Traffic-Predictor-App/xgboost_traffic_classifier.pkl')
+    cols = joblib.load('Traffic-Predictor-App/model_columns.pkl')
     return reg, clf, cols
 
 try:
