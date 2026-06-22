@@ -26,10 +26,21 @@ except Exception as e:
 col1, col2 = st.columns(2)
 
 with col1:
-    selected_road = st.selectbox("📍 Intersection Name:", 
-                                ("Silk Board Junction", "ITPL Main Road", "Hosur Road", "Hebbal Flyover", "M.G. Road"))
     selected_area = st.selectbox("🗺️ Area Name:", 
-                                ("Koramangala", "Whitefield", "Electronic City", "Indiranagar"))
+                                ("Koramangala", "Whitefield", "Electronic City", "North Bangalore", "Central"))
+    
+    # A Python Dictionary that links Areas to their specific roads
+    geography_map = {
+        "Koramangala": ["Silk Board Junction", "Sony World Signal"],
+        "Whitefield": ["ITPL Main Road", "Hope Farm Junction"],
+        "Electronic City": ["Hosur Road", "Toll Gate"],
+        "North Bangalore": ["Hebbal Flyover", "Mekhri Circle"],
+        "Central": ["M.G. Road", "Trinity Circle"]
+    }
+    
+    # The road dropdown now magically updates based on the area chosen above!
+    selected_road = st.selectbox("📍 Intersection Name:", geography_map[selected_area])
+    
     selected_weather = st.selectbox("☀️ Weather:", 
                                    ("Clear", "Rain", "Fog", "Overcast", "Windy"))
 
