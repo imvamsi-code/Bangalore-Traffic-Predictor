@@ -9,7 +9,7 @@ st.title("🚦 Bangalore Traffic Predictor")
 st.write("Predict live traffic volume and congestion levels for major intersections.")
 
 # --- 2. LOAD THE FROZEN MODELS ---
-@st.cache_resource  # This keeps the models in memory so the app runs lightning fast!
+@st.cache_resource  #
 def load_models():
     reg = joblib.load('Traffic-Predictor-App/xgboost_traffic_regressor.pkl')
     clf = joblib.load('Traffic-Predictor-App/xgboost_traffic_classifier.pkl')
